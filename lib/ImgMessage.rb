@@ -32,8 +32,8 @@ class ImgMessage
     mail.attachments.each do |a|
       if  (a.mime_type && a.mime_type =~ /image/) || (a.filename && a.filename =~ /png|tiff?|jpe?g|/ )
         ## TIFF: negative image positions unsupported
-        # Tiff のマルチページはエラーになる。
-        a.body= MagickUtils.deskew_image(a.body.decoded)
+        ## tiff でも +repageをつけておけばエラーにならないことを確認
+        a.body= MagickUtils.deskew_image(a.body.decoded,nil,'+repage')
      end
     end
     mail

@@ -26,12 +26,13 @@ module MagickUtils
       MiniMagick.identify.stdin.call(stdin: data)=~/JPEG/ ? true : false
     end
 
-    def deskew_image(image_binary, type = nil)
+    def deskew_image(image_binary, type = nil, *opts)
+      opts = opts + [type ? "#{type}:-" : '-']
       MiniMagick
         .convert
         .stdin
         .deskew('40%')
-        .merge!([type ? "#{type}:-" : '-'])
+        .merge!(opts)
         .call(stdin: image_binary)
         .force_encoding('ASCII-8BIT')
     end

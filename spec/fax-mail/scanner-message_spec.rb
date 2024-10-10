@@ -28,20 +28,22 @@ RSpec.describe 'fax/scanner tiff message' do
 
 
   end
-  it " cannot deskew_image (TIFF)" do
+  it " can deskew_image (TIFF)" do
     load_sample_mail = lambda{|name|
       mail_str = File.read(File.realpath File.join(File.dirname(__FILE__), "./../mail-parse/sample/#{name}"))
       Mail.read_from_string mail_str
     }
     ##
     expect{
+      # MiniMagick::Error,/TIFF: negative image positions unsupported/ が置きないように書き換えたので
       im = ImgMessage.new(load_sample_mail.call('tiff-singlepage.eml'))
       im.convert_to_deskew
-    }.to raise_error MiniMagick::Error,/TIFF: negative image positions unsupported/
+    }.not_to raise_error
     expect{
+      # MiniMagick::Error,/TIFF: negative image positions unsupported/ が置きないように書き換えたので
       im = ImgMessage.new(load_sample_mail.call('tiff-multipage.eml'))
       im.convert_to_deskew
-    }.to raise_error MiniMagick::Error,/TIFF: negative image positions unsupported/
+    }.not_to raise_error
 
 
   end

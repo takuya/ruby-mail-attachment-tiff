@@ -33,4 +33,8 @@ bundle install
 bundle exec rspec spec
 ```
 
+## ハマりどころ
 
+image magick の convert で mutipage な tiff を 扱う場合 `+repage`をつける。 
+
+つけないと`negative image positions unsupported` となり変換できているのにエラーになり、変換できているのにmini-magickが例外で落ちる。

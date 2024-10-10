@@ -13,7 +13,7 @@ RSpec.describe 'Brother-MFC-J67 の射出メールをテスト' do
     expect(png_mail.boundary).to eq orig_mail.boundary
     expect(png_mail.date).to eq orig_mail.date
     expect(png_mail.content_type).to eq orig_mail.content_type
-    expect(BrotherFaxMessage.tiff_attachments png_mail).to be_empty
+    expect(ImgTiffMessage.select_attachment(png_mail,'tiff')).to be_empty
 
   end
   it "メールからデータを取り出してTiff（マルチページ）を変換する。" do
@@ -30,12 +30,10 @@ RSpec.describe 'Brother-MFC-J67 の射出メールをテスト' do
     expect(png_mail.boundary).to eq orig_mail.boundary
     expect(png_mail.date).to eq orig_mail.date
     expect(png_mail.content_type).to eq orig_mail.content_type
-    expect(BrotherFaxMessage.tiff_attachments png_mail).to be_empty
+    expect(ImgTiffMessage.select_attachment(png_mail,'tiff')).to be_empty
     ## 添付ファイルは枚数が増えてるはず。
     expect(png_mail.attachments.size).to be > orig_mail.attachments.size
 
   end
-  it "変換したメールが正しく送信できるかテストする" do
 
-  end
 end
