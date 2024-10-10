@@ -20,14 +20,14 @@ TIFF複数枚が表示できないことが発端。
 ### install as gem
 ```shell
 [ -e Gemfile ] || bundle init 
-REPO_URL=https://github.com/takuya/ruby-mail-attachment-tiff
+REPO_URL=https://github.com/takuya/ruby-mail-attachment-tiff.git
 echo "gem 'takuya-ruby-mail-attachment-tiff', git: '$REPO_URL'" >> Gemfile
 bundle install 
 ```
 
 ### testing
 ```shell
-git clone https://github.com/takuya/ruby-mail-attachment-tiff
+git clone https://github.com/takuya/ruby-mail-attachment-tiff.git
 cd ruby-mail-attachment-tiff
 bundle install 
 bundle exec rspec spec

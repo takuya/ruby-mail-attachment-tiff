@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/takuya/ruby-mail-attachment-tiff"
   ## metadata
   spec.metadata["homepage_uri"] = spec.homepage
-  spec.metadata["source_code_uri"] = "https://github.com/takuya/ruby-mail-attachment-tiff"
+  spec.metadata["source_code_uri"] = "https://github.com/takuya/ruby-mail-attachment-tiff.git"
   spec.metadata["changelog_uri"] = "https://github.com/takuya/ruby-mail-attachment-tiff/README.md"
 
   # Specify which files should be added to the gem when it is released.
