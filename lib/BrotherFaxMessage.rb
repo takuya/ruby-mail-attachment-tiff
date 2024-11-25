@@ -1,4 +1,5 @@
 require_relative 'magick/utils'
+require_relative './FaxMessage'
 class BrotherFaxMessage
 
   def initialize(mail_encoded)
